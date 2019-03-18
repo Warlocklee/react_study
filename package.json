@@ -1,0 +1,24 @@
+{
+  "name": "react_study",
+  "version": "1.0.0",
+  "description": "react study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build/dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Warlocklee/react_study.git"
+  },
+  "author": "xieyue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Warlocklee/react_study/issues"
+  },
+  "homepage": "https://github.com/Warlocklee/react_study#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
