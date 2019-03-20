@@ -16,8 +16,8 @@
   npm init来初始化package.json
   配置.gitignore,如node_modules、编译代码输出目录dist(自己创建)等
   
-# 安装必须依赖
-  此1.0.0版本demo为webpack项目基础配置,未引入框架,只需兼容编译es6语法,所以必须依赖只有webpack、webpack-cli(新版本webpack如不安装webpack-cli使用限制较多)
+# 安装必需依赖
+  此1.0.0版本demo为webpack项目基础配置,未引入框架,只需兼容编译es6语法,所以必需依赖只有webpack、webpack-cli(新版本webpack如不安装webpack-cli使用限制较多)
 ## 如何区分依赖应该装到dependencies还是devDependencies?
     这两个的区别是在于：我们这个项目如果被发布成npm依赖包的话，别人用npm命令安装下来会不会自己把项目所用的依赖一起安装掉。如果是写在devDependencies的话，不会自动安装
     我们这个demo并不会发布成npm依赖包，所以现在装哪里没有区别，但可以这么区分：
