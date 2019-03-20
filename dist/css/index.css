@@ -1,0 +1,1 @@
+body{background-color:#ccc}#app{display:-ms-grid;display:grid;height:100px}#app .cell{-ms-grid-columns:(100px)[3];grid-template-columns:repeat(3,100px)}#app .cell:first-child{background-color:#333}#app .cell:last-child{background-color:#999}.test__importantText--2yxoK{color:#fff}

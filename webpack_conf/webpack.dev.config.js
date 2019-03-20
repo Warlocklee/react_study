@@ -13,6 +13,52 @@ module.exports = ({port = 3000}, env = 'dev') => webpackMerge(config, {
       'webpack-dev-server/client?http://0.0.0.0:' + port
     ]
   },
+  module: {
+    rules: [
+      {
+        test: /\.(css|less)$/,
+        oneOf: [
+          {
+             resourceQuery: /module/,
+             use: [
+               {
+                 loader: 'style-loader'
+               },
+               {
+                 loader: 'css-loader',
+                 options: {
+                   modules: true,
+                   localIdentName: '[name]__[local]--[hash:base64:5]'
+                 }
+               },
+               {
+                 loader: 'postcss-loader'
+               },
+               {
+                 loader: 'less-loader'
+               }
+             ]
+          },
+          {
+            use: [
+              {
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader'
+              },
+              {
+                loader: 'postcss-loader'
+              },
+              {
+                loader: 'less-loader'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
