@@ -62,3 +62,4 @@ typings/
 
 # user
 package-lock.json
+dist/

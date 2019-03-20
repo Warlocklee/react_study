@@ -12,7 +12,7 @@ module.exports = ({env = 'production'}) => {
   return webpackMerge(config, {
     mode: 'production',
     output: {
-      publicPath: '.',
+      publicPath: '.'
     },
     module: {
       rules: [
@@ -73,7 +73,25 @@ module.exports = ({env = 'production'}) => {
           parallel: true,
           sourceMap: true
         })
-      ]
+      ],
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            chunks: 'initial',
+            name: 'vendor',
+            reuseExistingChunk: true,
+            minSize: 0
+          },
+          chunks: {
+            chunks: 'all',
+            name: 'chunk',
+            minChunks: 3,
+            reuseExistingChunk: true,
+            minSize: 0
+          }
+        }
+      }
     },
     plugins: [
       new HtmlWebpackPlugin({
