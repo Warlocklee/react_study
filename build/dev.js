@@ -1,13 +1,21 @@
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 
-const config = require('../webpack_conf/webpack.config');
+const devConfig = require('../webpack_conf/webpack.dev.config.js');
 
-const compiler = webpack(config);
+const compiler = webpack(devConfig({
+  port: process.argv[2] || 3000,
+  env: process.argv[3] || 'dev'
+}));
 
-compiler.run((err, stats) => {
-  if(err) {
-    console.log(err);
-  }else {
-    console.log(stats.toJson());
-  }
+const app = new WebpackDevServer(compiler, {
+  stats: {
+    colors: true
+  },
+  clientLogLevel: 'warning',
+  hot: true
+});
+
+app.listen(process.argv[2] || 3000, (err) => {
+  console.log(err);
 });

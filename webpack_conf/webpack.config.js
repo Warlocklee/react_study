@@ -5,7 +5,9 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   resolve: {},
   entry: {
-    index: path.resolve(__dirname, '../src/index.js')
+    index: [
+      path.resolve(__dirname, '../src/index.js')
+    ]
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
