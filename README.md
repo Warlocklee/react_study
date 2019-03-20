@@ -34,9 +34,9 @@
   * module: 配置rules,指定当webpack遇到相应后缀文件时，调用相应的loader进行解析，可配置忽略node_modules里匹配的文件,加快处理速度
 
 # 主要配置介绍
-  webpack-merge依赖主要用来合并webpack配置
-  webpack-dev-server 用来启动本地开发服务器
-  html-webpack-plugin 让项目构建之后生成一个html文件
+  1. webpack-merge依赖主要用来合并webpack配置
+  2. webpack-dev-server 用来启动本地开发服务器
+  3. html-webpack-plugin 让项目构建之后生成一个html文件
 ## 本地开发环境配置简介
   需要注意的是rules的解析顺序是从下到上的,编写时需要注意,比如需要先解析less为css,再进行prefix添加和压缩等
   less的处理
