@@ -1,3 +1,38 @@
+# 简介
+  demo为学习webpack在项目中的配置而写，主要记录实际项目中所用配置的学习过程和遇到的问题及解决方案,新手上路,错漏难免,敬请指正
+  
+# demo包含功能
+  version 1.0.0主要包含以下功能:
+  1. webpack基本配置,区分本地开发环境、开发完成的编译打包配置
+  2. 本地开发环境配置了本地调试服务器(通过参数可自定义启动端口和环境)、热更新、css模块转换、js、less编译、css兼容prefix自动添加等
+  3. build打包配置包含 js、css编译压缩、css兼容prefix自动添加、babel es6转换、自动生成html文件、js拆分代码按需加载等项目实用功能
+
+# demo 演示
+  1. clone代码
+  2. 执行reset.sh shell脚本,清除依赖、删除编译代码、重新安装依赖
+  3. 启动本地调试服务器 npm start/启动编译命令npm run build (具体命令参考package.json中scripts字段)
+
+# 初始化
+  npm init来初始化package.json
+  配置.gitignore,如node_modules、编译代码输出目录dist(自己创建)等
+  
+# 安装必须依赖
+  此1.0.0版本demo为webpack项目基础配置,未引入框架,只需兼容编译es6语法,所以必须依赖只有webpack、webpack-cli(新版本webpack如不安装webpack-cli使用限制较多)
+## 如何区分依赖应该装到dependencies还是devDependencies?
+    这两个的区别是在于：我们这个项目如果被发布成npm依赖包的话，别人用npm命令安装下来会不会自己把项目所用的依赖一起安装掉。如果是写在devDependencies的话，不会自动安装
+    我们这个demo并不会发布成npm依赖包，所以现在装哪里没有区别，但可以这么区分：
+      如果构建前和构建时要用到的东西考虑放在devDependencies里去，比如webpack工具、less等
+      如果是构建后的代码里还要用到的东西，就放在dependencies里，比如react或者axios等
+      
+# webpack简单配置
+  初始不需要配置过多内容,基础配置在webpack_conf/webpack.config.js,开发环境的配置在webpack_conf/webpack.dev.config.js,build的配置在webpack_conf/webpack.build.config.js,开发和build配置继承webpack.config.js,其中各属性简介如下(具体请查阅webpack文档):
+  * mode: 模式, 其值为development、production或none,webpack会对每个值进行相应优化
+  * context: 指定基础目录为根目录
+  * resolve: 指定自动解析哪些格式的文件，这样代码里import和require的时候就不用写后缀名了
+  * entry: 指定入口文件
+  * output: 指定编译后输出目录
+  * module: 配置rules,指定当webpack遇到相应后缀文件时，调用相应的loader进行解析，可配置忽略node_modules里匹配的文件,加快处理速度
+
 # 主要配置介绍
   webpack-merge依赖主要用来合并webpack配置
   webpack-dev-server 用来启动本地开发服务器
@@ -19,3 +54,7 @@
 # todo
   1. 打包结果成分分析
   2. 引入react，完成react的webpack配置
+
+  
+
+
